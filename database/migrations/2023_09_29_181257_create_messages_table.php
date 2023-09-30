@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('sender_id');
             $table->integer('receiver_id');
             $table->string('content');
-            $table->string('date');
+            $table->date('date');
             $table->foreign('sender_id')->references('id')->on('users');
             $table->foreign('receiver_id')->references('id')->on('users');
             $table->timestamps();

@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('car_id');
             $table->integer('user_id');
-            $table->string('start_date');
-            $table->string('end_date');
-            $table->string('total_price');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->integer('total_price');
             $table->string('status');
             $table->foreign('car_id')->references('id')->on('cars');
             $table->foreign('user_id')->references('id')->on('users');
