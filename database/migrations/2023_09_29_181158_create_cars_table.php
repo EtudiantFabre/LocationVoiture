@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('owner_id');
             $table->string('make');
             $table->string('model');
-            $table->string('year');
+            $table->integer('year');
             $table->string('description');
             $table->string('photos');
             $table->integer('price_per_day');

@@ -13,7 +13,7 @@ return new class extends Migration
             $table->id();
             $table->integer('car_id');
             $table->integer('user_id');
-            $table->string('rating'); // note (1 à 5)
+            $table->integer('rating'); // note (1 à 5)
             $table->string('comment');
             $table->date('date');
             $table->foreign('car_id')->references('id')->on('cars');
