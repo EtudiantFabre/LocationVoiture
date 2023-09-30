@@ -29,7 +29,11 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                @if (isset($header))
+                    {{ $slot }}
+                @endif
+                
+                @yield('content')
             </main>
         </div>
     </body>

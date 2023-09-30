@@ -1,0 +1,41 @@
+**Table "Users" (Utilisateurs) :**
+- user_id (clé primaire)
+- name
+- email
+- password (haché)
+- role (locataire ou propriétaire)
+
+**Table "Cars" (Voitures) :**
+- car_id (clé primaire)
+- owner_id (clé étrangère faisant référence à la table Users)
+- make (marque)
+- model (modèle)
+- year (année de fabrication)
+- description
+- photos
+- price_per_day
+- availability_calendar
+
+**Table "Reservations" (Réservations) :**
+- reservation_id (clé primaire)
+- car_id (clé étrangère faisant référence à la table Cars)
+- user_id (clé étrangère faisant référence à la table Users)
+- start_date
+- end_date
+- total_price
+- status (en attente, confirmée, terminée, annulée)
+
+**Table "Reviews" (Avis) :**
+- review_id (clé primaire)
+- car_id (clé étrangère faisant référence à la table Cars)
+- user_id (clé étrangère faisant référence à la table Users)
+- rating (note de 1 à 5)
+- comment
+- date
+
+**Table "Messages" (Messages) :**
+- message_id (clé primaire)
+- sender_id (clé étrangère faisant référence à la table Users)
+- receiver_id (clé étrangère faisant référence à la table Users)
+- content
+- date

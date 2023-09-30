@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AuthorisationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +28,27 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+/* Route::middleware(['admin', 'auth', 'verified'])->group(function () {
+    Route::get('/admin' , [AuthorisationController::class, 'admin'])->name('admin');
+    Route::get('/client' , [AuthorisationController::class, 'client'])->name('client');
+});
+
+Route::middleware(['client', 'auth', 'verified'])->group(function () {
+    Route::get('/client' , [AuthorisationController::class, 'client'])->name('client');
+}); */
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::middleware(['admin'])->group(function () {
+        Route::get('/admin', [AuthorisationController::class, 'admin'])->name('admin');
+        Route::get('/client' , [AuthorisationController::class, 'client'])->name('client');
+    });
+
+    Route::middleware(['client'])->group(function () {
+        Route::get('/client', [AuthorisationController::class, 'client'])->name('client');
+    });
+});
+
+
 
 require __DIR__.'/auth.php';
