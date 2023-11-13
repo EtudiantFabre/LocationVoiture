@@ -22,8 +22,9 @@ class PermissionSeeder extends Seeder
             "user_index"
         );
 
-        foreach ($permissions as $p) {
-            Permission::create(['name'=> $p]);
+
+        foreach($permissions as $permission){
+            Permission::create(['name' => $permission]);
         }
     }
 }

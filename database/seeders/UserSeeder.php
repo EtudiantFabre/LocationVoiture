@@ -14,12 +14,16 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $first_user = User::factory()->create();
-        $first_user->assignRole(Role::find(1)->name);
 
-        $second_user = User::factory()->create();
-        $second_user->assignRole(Role::find(2)->name);
+        $user = User::factory()->create();
+        $user->assignRole(Role::find(1)->name);
 
-        $permissions = $second_user->getPermissionsViaRoles();
+        // Adding permissions via a role
+        //$user->assignRole('writer');
+
+        $user1 = User::factory()->create();
+        $user1->assignRole(Role::find(2)->name);
+        $permissions = $user1->getPermissionsViaRoles();
+        echo $permissions;
     }
 }

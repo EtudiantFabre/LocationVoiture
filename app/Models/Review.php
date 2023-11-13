@@ -19,8 +19,14 @@ class Review extends Model
 
     protected $primarykey = 'id';
 
+
     const CREATED_AT = 'creation_date';
     const UPDATED_AT = 'updated_date';
+
+    public function users(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
 
     public function car(): BelongsTo
     {

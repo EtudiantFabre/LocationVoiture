@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 
 class AuthorisationController extends Controller
 {
-    public function admin() {
+
+    public function admin(Request $request) {
         return view('middleware.admin');
     }
 
-    public function client() {
+    public function client(Request $request) {
         return view('middleware.client');
     }
 }

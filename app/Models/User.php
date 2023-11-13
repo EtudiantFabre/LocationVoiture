@@ -44,18 +44,15 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-
     public function cars(): HasMany
     {
         return $this->hasMany(Car::class);
     }
 
-
     public function messages(): HasMany
     {
         return $this->hasMany(Message::class);
     }
-
 
     public function reservations(): HasMany
     {

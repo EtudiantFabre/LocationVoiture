@@ -13,6 +13,7 @@ class ProfileTest extends TestCase
     public function test_profile_page_is_displayed(): void
     {
         $user = User::factory()->create();
+        $users = User::factory()->count(5)->create();
 
         $response = $this
             ->actingAs($user)

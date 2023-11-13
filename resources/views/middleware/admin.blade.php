@@ -6,3 +6,4 @@
         <h2>sa commence bien</h2>
     </div>
 @endsection
+

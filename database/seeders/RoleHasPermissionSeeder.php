@@ -16,6 +16,7 @@ class RoleHasPermissionSeeder extends Seeder
     public function run(): void
     {
         $admin = Role::find(1);
+        $roles = Role::all();
         $permissions = Permission::all();
 
         $admin->syncPermissions($permissions);
@@ -29,10 +30,9 @@ class RoleHasPermissionSeeder extends Seeder
         ];
 
         foreach ($permissions as $p) {
-            if (!in_array($p, $rollbak_permissions_client)) {
+            if (!(in_array($p, $rollbak_permissions_client))) {
                 $client->syncPermissions($p);
             }
         }
-
     }
 }

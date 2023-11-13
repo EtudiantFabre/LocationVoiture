@@ -20,6 +20,7 @@ class Car extends Model
         'availability_calendar'
     ];
 
+
     protected $primarykey = 'id';
 
     const CREATED_AT = 'creation_date';
@@ -27,10 +28,8 @@ class Car extends Model
 
     // https://laravel.com/docs/10.x/eloquent-relationships#one-to-many-inverse
 
-
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'id', 'owner_id');
     }
-
 }
