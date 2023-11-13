@@ -9,9 +9,16 @@ class Review extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['car_id', 'user_id', 'rating', 'comment', 'date'];
+    protected $fillable = [
+        'car_id',
+        'user_id',
+        'rating',
+        'comment',
+        'date'
+    ];
 
-    protected $primaykey = 'id';
+    protected $primarykey = 'id';
+
 
     const CREATED_AT = 'creation_date';
     const UPDATED_AT = 'updated_date';
@@ -25,6 +32,7 @@ class Review extends Model
     {
         return $this->belongsTo(Car::class, 'id', 'car_id');
     }
+
 
     public function user(): BelongsTo
     {

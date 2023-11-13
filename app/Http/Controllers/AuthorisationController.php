@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class AuthorisationController extends Controller
 {
+
     public function admin(Request $request) {
         return view('middleware.admin');
     }

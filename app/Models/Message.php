@@ -9,12 +9,15 @@ class Message extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['sender_id', 'receiver_id', 'content', 'date'];
+    protected $fillable = ['sender_id', 'receiver_id', 'content',
+        'date'
+    ];
 
-    protected $primaykey = 'id';
+    protected $primarykey = 'id';
 
     const CREATED_AT = 'creation_date';
     const UPDATED_AT = 'updated_date';
+
 
     public function user_sender(): BelongsTo
     {
